@@ -10,7 +10,7 @@ export const MobileNavbar = () => {
     return (
         <div className={`mobile-navbar ${themeState?'dark-theme':''}`}>
             <div className='flex space-around place-center inner-navbar-container'>
-                <NavLink className={`navlink-btn flex place-center ${location.pathname === '/'?'active':''}`} to="/">
+                <NavLink className={`navlink-btn flex place-center ${location.pathname === '/'&&location.pathname !== '/favorite'?'active':''}`} to="/">
                     <VscHome/>
                 </NavLink>
                 <NavLink className={`navlink-btn flex place-center ${location.pathname === '/favorite'?'active':''}`} to="/favorite">
