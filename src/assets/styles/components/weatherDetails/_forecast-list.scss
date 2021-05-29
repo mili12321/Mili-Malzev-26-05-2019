@@ -1,0 +1,19 @@
+.daily-forecasts{
+    margin-top: 10px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .daily-forecasts{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .daily-forecasts{
+        display: grid;
+        row-gap: 20px;
+        grid-template-columns: repeat( auto-fit, minmax(210px, 1fr) );
+    }
+}

@@ -1,0 +1,128 @@
+.navbar{
+    width: 100%;
+    font-family: "Ubunto";
+    font-weight: 800;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    .logo-img{
+        width: 40px;
+    }
+    &.scroll{
+        background: rgba( 255, 255, 255, 0.30 );
+        box-shadow: 0 -2px 20px 0 rgb(31 38 135 / 37%);
+        backdrop-filter: blur(40px );
+        -webkit-backdrop-filter: blur( 40px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+}
+.inner-navbar-container{
+    padding: 7px 25px;
+}
+.navlink-btn, .logo-wrapper{
+    color: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar{
+        font-size: 14px;
+        margin-bottom: 15px; 
+    }
+    .mobile-navbar{
+        position: fixed;
+        bottom: 0;
+        z-index: 100;
+        width: 100vw;
+        box-shadow: 0 -5px 5px -5px lighten( $darkTheme, 40% );
+        color:lighten( $darkTheme, 40% );
+        background: rgba( 255, 255, 255, 0.30 );
+        backdrop-filter: blur( 7.0px );
+        -webkit-backdrop-filter: blur( 7.0px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        &.dark-theme{
+            color:lighten( $darkTheme, 15% );
+            box-shadow: 0 -5px 5px -5px lighten( $darkTheme, 10% );
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+    }
+    .navlink-btn{
+        font-size: 25px;
+        &:hover, &.active{
+            color:$clr2;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 600px) {
+    .mobile-navbar{
+       display: none;
+    }
+    .navbar{
+        font-size: 25px;
+        .inner-navbar-container{
+            max-width: 1500px;
+            margin: auto;
+        }
+    }
+    .navlink-btn{
+        --c: #5896fd;
+        color: var(--c);
+        font-size: 16px;
+        border: 0.3em solid var(--c);
+        border-radius:3px;
+        width: em(122px);
+        height: em(36px);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: sans-serif;
+        letter-spacing: 0.1em;
+        text-align: center;
+        line-height: em(36px);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: 0.5s;
+        span {
+            position: absolute;
+            width: 25%;
+            height: 100%;
+            background-color: var(--c);
+            transform: translateY(150%);
+            border-radius: 50%;
+            left: calc((var(--n) - 1) * 25%);
+            transition: 0.5s;
+            transition-delay: calc((var(--n) - 1) * 0.1s);
+            z-index: -1;
+            &:nth-child(1) {
+                --n: 1;
+            }
+            &:nth-child(2) {
+                --n: 2;
+            }
+            &:nth-child(3) {
+                --n: 3;
+            }
+            &:nth-child(4) {
+                --n: 4;
+            }
+        }
+        &:hover {
+            color: $lightClr;
+            span {
+                transform: translateY(0) scale(2);
+            }
+        }
+        &.active{
+            color: $lightClr;
+            background-color: $clr2;
+        }
+        &.dark{
+            &:hover, &.active{
+                color: black;
+            }
+        }
+    }
+
+}

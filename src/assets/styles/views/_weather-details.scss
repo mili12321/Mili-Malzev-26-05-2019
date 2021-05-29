@@ -1,0 +1,92 @@
+.weather-details{
+    min-height: 100vh;
+    height: 100%;
+}
+.inner-container{
+    margin: auto;
+}
+
+.icon-img{
+    width: 40px;
+    border-radius: 21px;
+    img{
+        width: 100%;
+    } 
+}
+.icon{
+    color: $clr6;
+    &.mobile{
+        font-size: 35px;
+        color: $clr3;
+    }
+}
+.temperature-param{
+    width: fit-content;
+    height: fit-content;
+    place-items: center;
+    color:darken( $clr4, 30% );
+    div{
+        &.dark-theme{
+            color:lighten( $clr4, 20% );
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .inner-container{
+        width: 88vw;
+        .current-details-section{
+            margin-bottom: 30px;
+        }
+    }
+    .temperatureParams-desktop-wrapper{
+       display: none;
+    }
+    .hourly-forecast-wrapper{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .inner-container{
+        width: 93vw;
+        max-width: 1500px;
+         .current-details-section{
+             display: flex;
+             flex-direction: row-reverse;
+             justify-content: flex-end;
+         }
+     }
+    .current-conditions-container{
+        position: relative;
+        .temperature-params{
+            display: none;
+        }
+    }
+    .temperatureParams-desktop-wrapper{
+        width: fit-content;
+    }
+    .hourly-forecast-wrapper{
+        margin-bottom: 20px;
+    }
+    .hourly-forecast-preview{
+        padding: 5px;
+        background-color: #ffffff2b;
+        border-radius: 3px;
+        min-width: 100px;
+        &.dark{
+            background-color: #00000018;
+        }
+    }
+    .hourly-forecast-list{
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #5896fd12;
+        grid-template-columns: repeat( auto-fit, minmax(100px, 1fr) );
+        gap: 2px;
+        &.dark{
+            background-color: #b8b8b812;
+        }
+    }
+
+}

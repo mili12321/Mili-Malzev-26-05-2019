@@ -1,0 +1,58 @@
+.day-forecast-preview{
+    .day-icon{
+        width: 30px;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .day-forecast-preview{
+       >div{
+           &.desktop{
+               display: none;
+           }
+       }
+    }
+}
+@media only screen and (min-width: 600px) {
+    .day-forecast-preview{
+        .desktop{
+            width: 100%;
+            .day-icon{
+                width: 50px;
+            }
+            .temperature-params{
+                &.forecast{
+                    font-size: em(13px);
+                    margin: auto;
+                    margin-top: 26px;
+                    width: 60%;
+                    >div{
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+        >div{
+            &.mobile{
+                display: none;
+            }
+        }
+    }
+    .day-temperature{
+        &.min{
+            background: -webkit-linear-gradient($gradient-clr1, $clr2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        &.max{
+            background: -webkit-linear-gradient($gradient3-clr2, $gradient3-clr1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

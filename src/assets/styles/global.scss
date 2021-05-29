@@ -1,0 +1,38 @@
+// Setup
+@import "setup/variables.scss";
+@import "setup/functions.scss";
+@import "setup/mixins.scss";
+@import "setup/typography.scss";
+
+// Basics
+@import "basics/helpers.scss";
+@import "basics/layout.scss";
+@import "basics/base.scss";
+@import "basics/links.scss";
+@import "basics/inputs.scss";
+
+// Views
+@import "views/weather-details.scss";
+@import "views/favorite-citys.scss";
+@import "views/mobile-search.scss";
+
+
+// Components
+//buttons
+@import "components/buttons/favorite-btn";
+@import "components/buttons/theme-toggle-btn";
+@import "components/buttons/temperature-conversion-btn";
+//favorites
+@import "components/favorites/favorite-list";
+@import "components/favorites/favorite-preview";
+//weather-details-cmps
+@import "components/weatherDetails/location-details";
+@import "components/weatherDetails/weather-card-preview";
+@import "components/weatherDetails/forecast-list";
+@import "components/weatherDetails/forecast-preview";
+//
+@import "components/navbar.scss";
+@import "components/search.scss";
+@import "components/card-type-2.scss";
+@import "components/circular-progress-bar.scss";
+@import "components/loader.scss";

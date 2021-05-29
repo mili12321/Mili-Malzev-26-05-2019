@@ -1,0 +1,27 @@
+.location{
+    .city{
+    }
+    .country{
+    }
+    .city, .country{
+        line-height: 1.2;
+    }
+    .date{
+        color:$clr4;
+        line-height: 2.2;
+        font-weight: 700;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .location{
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .location{
+        margin-left: 20px;
+    }
+}

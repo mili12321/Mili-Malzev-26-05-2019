@@ -1,0 +1,130 @@
+.curr-favorite-location-params{
+    .param-wrapper{
+        padding: 5px;
+        border-radius: 3px;
+        margin-right: 7px;
+        background-color: rgba(255, 255, 255, 0.137);
+        color: white;
+        >div{
+            &:first-child{
+                margin-bottom: 2px;
+            }
+        }
+    }
+}
+.weather-icon-favorite{
+    width: em(150px);
+    position: absolute;
+    img{
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+    }
+}
+.options-btn-wrapper{
+    padding: 5px;
+    border-radius: 3px;
+    width: fit-content;
+    font-size: 20px;
+    cursor: pointer;
+    &.active, &:hover{
+        background-color:rgba(0, 0, 0, 0.212);
+    }
+}
+.modal{
+    width: fit-content;
+    height: fit-content;
+    padding: 14px ;
+    background-color: rgba(255, 255, 255, 0.849);
+    border-radius: 3px;
+    position: absolute;
+    z-index: 200;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    .delete-btn{
+        padding: 5px ;
+        background-color: rgb(179, 179, 179);
+        border-radius: 3px;
+        width: fit-content;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(148, 148, 148);
+        }
+    }
+}
+.options-container{
+    font-size: 17px;
+    top: -12px;
+    left: -7px;
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    .weather-icon-favorite{
+        top: -37px;
+        right: -27px;
+    }
+    .img-shadow-favorite{
+        border-radius: 38%;
+        width: 53%;
+        height: 39%;
+        top: -4px;
+        left: 88px;
+        position: absolute;
+    }
+    .favorite-location{
+        &dark{
+            color: $clr3;
+        }
+    }
+    .favorite-temperature{
+        background: -webkit-linear-gradient(white, $gradient-clr1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .modal{
+        top: 31px;
+    }
+    .options-btn-wrapper{
+        &.active{
+            color: white;
+        }
+    }
+    .curr-favorite-location-params{
+        .param-wrapper{
+            >div{
+                &:not(:first-child){
+                    color: $clr3;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .weather-icon-favorite{
+        right: -35px;
+        top: -53px;
+    }
+    .favorite-temperature{
+        background: -webkit-linear-gradient(white, $gradient3-clr2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .options-container{
+        margin-bottom: 16px;
+    }
+    .options-btn-wrapper{
+        &.active{
+            color: $clr2;
+        }
+    }
+    .curr-favorite-location-params{
+        .param-wrapper{
+            >div{
+                &:not(:first-child){
+                    color: #252732;
+                }
+            }
+        }
+    }
+}
