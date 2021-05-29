@@ -96,6 +96,8 @@ export function Search() {
                             onGetCityDetails={onGetCityDetails}
                             onToggleLocation={onToggleLocation}
                             favoriteCitys={favoriteCitys}
+                            setCitysData={setCitysData}
+                            inputRef={inputRef}
                             />
                         )
                     }
@@ -107,7 +109,7 @@ export function Search() {
 }
 
 
-function CityDataPreview({favoriteCitys,cityData,getCurrentStyle,onGetCityDetails,onToggleLocation}) {
+function CityDataPreview({favoriteCitys,cityData,getCurrentStyle,onGetCityDetails,onToggleLocation,setCitysData,inputRef}) {
 
     const [isActive, setisActive] = useState(false)
 
@@ -120,9 +122,16 @@ function CityDataPreview({favoriteCitys,cityData,getCurrentStyle,onGetCityDetail
        }
     }, [cityData,favoriteCitys])
 
+    function onSetCitysData() {
+        setCitysData([])
+        if(inputRef&&inputRef.current){
+            inputRef.current.value=''
+        }
+        onGetCityDetails(cityData)
+    }
 
     return ( 
-    <div className={`city-data-preview flex  place-center ${getCurrentStyle(cityData.Key)}`} onClick={()=>onGetCityDetails(cityData)}>
+    <div className={`city-data-preview flex  place-center ${getCurrentStyle(cityData.Key)}`} onClick={onSetCitysData}>
        <div className='flex search-name-result'>
             <div className='margin-right-5px'>{cityData.LocalizedName}, </div>
             <div className='country'>{cityData.Country.LocalizedName}</div>

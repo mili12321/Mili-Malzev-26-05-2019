@@ -1,4 +1,4 @@
-const API_KEY = 'JAbAMB3F7H9ELGto9tJ3cpkm2fDySdbK'
+const API_KEY = 'GXIXSjcrVNNFdmO6Pj2qpGW5UphMrlGe'
 
 export const weatherService = {
     getAutoComplete,
