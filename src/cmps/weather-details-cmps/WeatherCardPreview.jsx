@@ -8,6 +8,19 @@ export const WeatherCardPreview = ({currentCityData}) => {
     const {weatherIcon,weatherText,temperature,realFeelTemperature} = currentCityData
     const themeState = useSelector(state => state.theme.themeState);  
 
+    function getWeatherIconSize() {
+       switch (weatherIcon) {
+           case 33:
+           case 34:
+           case 35:
+           case 36:
+           case 37:
+               return 'smaller'
+           default:
+               return ''
+       }
+    }
+
     return (
        <div className='weather-card-preview flex'>
            <div className="weather-text bold-600 title-txt">{weatherText}</div>
@@ -22,7 +35,7 @@ export const WeatherCardPreview = ({currentCityData}) => {
                     </span>
                </div>
            </div>
-           <div className="weather-icon">
+           <div className={`weather-icon ${getWeatherIconSize()}`}>
                <img src={getWeatherIcon(weatherIcon)} alt="" srcSet="" />   
                <div className={`img-shadow ${themeState?"dark-theme":"light-theme"}`}></div>
            </div>

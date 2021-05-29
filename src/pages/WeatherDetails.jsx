@@ -169,7 +169,7 @@ export const WeatherDetails = () => {
             setDailyForecastsData([])
             setHourlyForecatsData([])
         }
-    }, []); 
+    }, [currCity,location.pathname]); 
 
     
 

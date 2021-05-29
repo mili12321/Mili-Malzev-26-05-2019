@@ -123,11 +123,11 @@ function CityDataPreview({favoriteCitys,cityData,getCurrentStyle,onGetCityDetail
     }, [cityData,favoriteCitys])
 
     function onSetCitysData() {
+        onGetCityDetails(cityData)
         setCitysData([])
         if(inputRef&&inputRef.current){
             inputRef.current.value=''
         }
-        onGetCityDetails(cityData)
     }
 
     return ( 

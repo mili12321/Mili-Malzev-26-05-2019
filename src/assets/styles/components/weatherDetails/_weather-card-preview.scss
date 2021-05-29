@@ -18,6 +18,9 @@
         z-index: 1;
         position: relative;
     }
+    &.smaller{
+        width: em(134px);
+    }
 }
 
 .img-shadow{
@@ -64,6 +67,9 @@
     .weather-icon{
         top: -47px;
         left: 0;
+        &.smaller{
+            top: -36px;
+        }
     }
     .img-shadow{
         background-color: rgb(105 104 104 / 36%);
@@ -112,6 +118,10 @@
     .weather-icon{
         top: 44px;
         left: 111px;
+        &.smaller{
+            top: 57px;
+            left: 129px;
+        }
     }
     .img-shadow{
        &.dark-theme{
