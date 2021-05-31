@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FavoriteList } from "../cmps/FavoriteList";
 import { loadFavoriteCitys } from "../store/actions/cityActions";
-import { Loader } from "../cmps/Loader";
 
 export const FavoriteCitys = () => {
 
@@ -13,7 +12,6 @@ export const FavoriteCitys = () => {
         dispatch(loadFavoriteCitys())
     }, [dispatch])
 
-    if(favoriteCitys.length===0) return <Loader/>
     return (
         <div className='favorite-page flex place-center column'>
             <div className="title bold-800 title-txt margin-bottom-30px">Favorite Locations</div>

@@ -23,76 +23,62 @@ export const WeatherDetails = () => {
     const [currentCityData, setCurrentCityData] = useState(null)
     const [dailyForecastsData, setDailyForecastsData] = useState([])
     const [hourlyForecastData, setHourlyForecatsData] = useState([])
-    const [status, setStatus] = useState(null)
 
     const dispatch = useDispatch()
     let history = useHistory();
     const location = useLocation();
 
-    function getCurrLocaion() {
-        try {
+
+    useEffect(() => {
+        if(!currCity){
             function success(position) {
                 const latitude  = position.coords.latitude;
                 const longitude = position.coords.longitude;
-                setStatus(`${latitude},${longitude}`);
-              }
+                getLocation(`${latitude},${longitude}`)
+            }
           
-              function error() {
-                setStatus(null);
-                  toast.error('Unable to retrieve your location', { position: toast.POSITION.BOTTOM_LEFT })
-                  if(location.pathname === '/'&&currCity){
-                      history.push(`/${currCity.name}`)
-                  }
-              }
-          
-              if(!navigator.geolocation) {
-                setStatus(null);
-                toast.error('Geolocation is not supported by your browser', { position: toast.POSITION.BOTTOM_LEFT })
-              } else {
-                navigator.geolocation.getCurrentPosition(success, error);
-              }
-          
-        } catch (error) {
-            const watchId = navigator.geolocation.watchPosition(position => {
-                setStatus(`${position.coords.latitude},${position.coords.longitude}`);
-            });
-        }
-    }
-
-
-    useEffect(() => {
-        if(status){
-            getLocation()
-        }
-        function getLocation() {
-            if(status){
-                async function fetchCurrentLocation() {
-                    const response = await weatherService.getCurrLocation(status).then(data => data.json()).then(data => {
-                        return data
-                    })    
-                    const city  =  {
-                        _id: `${response.Key}`,
-                        name:response.LocalizedName,
-                        key:parseInt(response.Key),
-                        country:response.Country.LocalizedName
-                    }
-                    dispatch(updateCurrCity(city))
-                    history.push(`/${city.name}`)      
+            function error() {
+                toast.error('Unable to retrieve your location', { position: toast.POSITION.BOTTOM_LEFT })
+                if(location.pathname === '/'&&currCity){
+                    const defaultCity = {
+                            _id:'2154402',
+                            name:'Tel Aviv',
+                            country:'Israel',
+                            key:2154402
+                        }
+                    dispatch(updateCurrCity(defaultCity))
+                    history.push(`/${defaultCity.name}`)
                 }
-                fetchCurrentLocation()
             }
+          
+            if(!navigator.geolocation) {
+              toast.error('Geolocation is not supported by your browser', { position: toast.POSITION.BOTTOM_LEFT })
+            } else {
+              navigator.geolocation.getCurrentPosition(success, error);
+            }
+          
         }
-    }, [status,history,dispatch])
+        function getLocation(status) {
+            async function fetchCurrentLocation() {
+                const response = await weatherService.getCurrLocation(status).then(data => data.json()).then(data => {
+                    return data
+                })    
+                const city  =  {
+                    _id: `${response.Key}`,
+                    name:response.LocalizedName,
+                    key:parseInt(response.Key),
+                    country:response.Country.LocalizedName
+                }
+                dispatch(updateCurrCity(city))
+                history.push(`/${city.name}`)      
+            }
+            fetchCurrentLocation()
+        }
+    }, [currCity,history,location.pathname,dispatch])
 
 
     useEffect(() => {
-        if(location.pathname === '/'){
-            try {
-                getCurrLocaion() 
-            } catch (error) {
-                toast.error("Failed to get location", { position: toast.POSITION.BOTTOM_LEFT })
-            }
-        }else{
+        if(currCity){
             try {
                 async function fetchCurrentCityConditions() {    
                     const response = await weatherService.getCurrentCityConditions(currCity.key).then (data => data.json()).then (data => {
@@ -173,7 +159,7 @@ export const WeatherDetails = () => {
 
     
 
-    if(!currentCityData&&dailyForecastsData.length===0&&hourlyForecastData.length===0) return <Loader/>
+    if(!currCity||!currentCityData||dailyForecastsData.length===0||hourlyForecastData.length===0) return <Loader/>
     return (
        <div className="weather-details">
             <div className="desktop-search"><Search/></div>
