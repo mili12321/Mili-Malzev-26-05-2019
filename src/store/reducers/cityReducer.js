@@ -1,12 +1,6 @@
 const initialState = {
     favoriteCitys: [],
     currCity:null
-    // currCity:{
-    //     _id:'2154402',
-    //     name:'Tel Aviv',
-    //     country:'Israel',
-    //     key:2154402
-    // }
 }
 
 export function cityReducer(state = initialState, action) {
