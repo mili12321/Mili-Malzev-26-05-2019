@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Mili-Malzev-26-05-2019/static/css/main.87cc9af5.chunk.css",
-    "main.js": "/Mili-Malzev-26-05-2019/static/js/main.9b5afbda.chunk.js",
-    "main.js.map": "/Mili-Malzev-26-05-2019/static/js/main.9b5afbda.chunk.js.map",
+    "main.css": "/Mili-Malzev-26-05-2019/static/css/main.baecdb99.chunk.css",
+    "main.js": "/Mili-Malzev-26-05-2019/static/js/main.a8f38e07.chunk.js",
+    "main.js.map": "/Mili-Malzev-26-05-2019/static/js/main.a8f38e07.chunk.js.map",
     "runtime-main.js": "/Mili-Malzev-26-05-2019/static/js/runtime-main.2771416a.js",
     "runtime-main.js.map": "/Mili-Malzev-26-05-2019/static/js/runtime-main.2771416a.js.map",
     "static/css/2.97503911.chunk.css": "/Mili-Malzev-26-05-2019/static/css/2.97503911.chunk.css",
-    "static/js/2.f5b3d654.chunk.js": "/Mili-Malzev-26-05-2019/static/js/2.f5b3d654.chunk.js",
-    "static/js/2.f5b3d654.chunk.js.map": "/Mili-Malzev-26-05-2019/static/js/2.f5b3d654.chunk.js.map",
+    "static/js/2.bf405783.chunk.js": "/Mili-Malzev-26-05-2019/static/js/2.bf405783.chunk.js",
+    "static/js/2.bf405783.chunk.js.map": "/Mili-Malzev-26-05-2019/static/js/2.bf405783.chunk.js.map",
     "static/js/3.57cbcfa3.chunk.js": "/Mili-Malzev-26-05-2019/static/js/3.57cbcfa3.chunk.js",
     "static/js/3.57cbcfa3.chunk.js.map": "/Mili-Malzev-26-05-2019/static/js/3.57cbcfa3.chunk.js.map",
     "index.html": "/Mili-Malzev-26-05-2019/index.html",
     "static/css/2.97503911.chunk.css.map": "/Mili-Malzev-26-05-2019/static/css/2.97503911.chunk.css.map",
-    "static/css/main.87cc9af5.chunk.css.map": "/Mili-Malzev-26-05-2019/static/css/main.87cc9af5.chunk.css.map",
-    "static/js/2.f5b3d654.chunk.js.LICENSE.txt": "/Mili-Malzev-26-05-2019/static/js/2.f5b3d654.chunk.js.LICENSE.txt",
+    "static/css/main.baecdb99.chunk.css.map": "/Mili-Malzev-26-05-2019/static/css/main.baecdb99.chunk.css.map",
+    "static/js/2.bf405783.chunk.js.LICENSE.txt": "/Mili-Malzev-26-05-2019/static/js/2.bf405783.chunk.js.LICENSE.txt",
     "static/media/global.scss": "/Mili-Malzev-26-05-2019/static/media/Ubuntu-Regular.fbdecfce.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.2771416a.js",
     "static/css/2.97503911.chunk.css",
-    "static/js/2.f5b3d654.chunk.js",
-    "static/css/main.87cc9af5.chunk.css",
-    "static/js/main.9b5afbda.chunk.js"
+    "static/js/2.bf405783.chunk.js",
+    "static/css/main.baecdb99.chunk.css",
+    "static/js/main.a8f38e07.chunk.js"
   ]
 }
