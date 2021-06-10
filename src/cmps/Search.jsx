@@ -1,9 +1,9 @@
-import React, { useEffect,useState,useRef } from "react";
+import React, { useState,useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadFavoriteCitys,updateFavoriteCitys,updateCurrCity} from "../store/actions/cityActions";
+import { updateFavoriteCitys,updateCurrCity } from "../store/actions/cityActions";
 import { weatherService } from "../services/weatherService";
 import { useHistory } from "react-router-dom";
-import { HeartBtnIcon } from "./buttons/HeartBtnIcon";
+import { CityDataPreview } from "./CityDataPreview";
 import { toast } from 'react-toastify';
 
 export function Search() {
@@ -36,12 +36,6 @@ export function Search() {
             }
         }
     }
-  
-
-    useEffect(() => {
-        dispatch(loadFavoriteCitys())
-    }, [dispatch])    
-    
 
     function getCurrentStyle(Key) {
         if(favoriteCitys&&favoriteCitys.length>0){
@@ -83,62 +77,38 @@ export function Search() {
             ref={inputRef}
             onChange={getAutoComplete}
             placeholder='Enter at least 2 letters to start..'
+            onKeyDown={(e)=>{
+                var letters = /^[A-Za-z]+$/; 
+                if (e.key.match(letters)) { 
+                    return true; 
+                } 
+                else { 
+                    e.preventDefault(); 
+                } 
+            }}
             />
             {citysData.length>0&&
-                <div className={`city-list ${citysData.length>0?'full':''}`}>
-                   <div className="city-list-scroll-wrapper">
-                   {
-                        citysData.map((cityData,idx)=>
-                            <CityDataPreview
-                            key={idx} 
-                            cityData={cityData}
-                            getCurrentStyle={getCurrentStyle}
-                            onGetCityDetails={onGetCityDetails}
-                            onToggleLocation={onToggleLocation}
-                            favoriteCitys={favoriteCitys}
-                            setCitysData={setCitysData}
-                            inputRef={inputRef}
-                            />
-                        )
-                    }
-                   </div>
+                <div className="city-list-wrapper">
+                    <div className={`city-list ${citysData.length>0?'full':''} ${themeState?'dark':''}`}>
+                        <div className="city-list-scroll-wrapper">
+                        {
+                             citysData.map((cityData,idx)=>
+                                <CityDataPreview
+                                key={idx} 
+                                cityData={cityData}
+                                getCurrentStyle={getCurrentStyle}
+                                onGetCityDetails={onGetCityDetails}
+                                onToggleLocation={onToggleLocation}
+                                favoriteCitys={favoriteCitys}
+                                setCitysData={setCitysData}
+                                inputRef={inputRef}
+                                />
+                             )
+                        }
+                        </div>
+                    </div>
                 </div>
             }
         </div>
-    )
-}
-
-
-function CityDataPreview({favoriteCitys,cityData,getCurrentStyle,onGetCityDetails,onToggleLocation,setCitysData,inputRef}) {
-
-    const [isActive, setisActive] = useState(false)
-
-    useEffect(() => {
-        const isIncludsCity = favoriteCitys.filter(_city=>_city.key===cityData.Key)[0]
-       if(isIncludsCity){
-        setisActive(true)
-       }else{
-        setisActive(false)
-       }
-    }, [cityData,favoriteCitys])
-
-    function onSetCitysData() {
-        onGetCityDetails(cityData)
-        setCitysData([])
-        if(inputRef&&inputRef.current){
-            inputRef.current.value=''
-        }
-    }
-
-    return ( 
-    <div className={`city-data-preview flex  place-center ${getCurrentStyle(cityData.Key)}`} onClick={onSetCitysData}>
-       <div className='flex search-name-result'>
-            <div className='margin-right-5px'>{cityData.LocalizedName}, </div>
-            <div className='country'>{cityData.Country.LocalizedName}</div>
-       </div>
-        <div onClick={(e)=>{onToggleLocation(e,cityData)}}>
-            <HeartBtnIcon isActive={isActive} size={'small'}/>
-        </div>
-    </div>
     )
 }

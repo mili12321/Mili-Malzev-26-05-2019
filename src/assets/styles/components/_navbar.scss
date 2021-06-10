@@ -51,6 +51,9 @@
         &:hover, &.active{
             color:$clr2;
         }
+        &.desktop-view{
+            display: none;
+        }
     }
 
 }

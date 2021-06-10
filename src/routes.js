@@ -3,11 +3,6 @@ import { FavoriteCitys } from './pages/FavoriteCitys.jsx'
 
 
 export const routes=[
-
-  {
-    path: '/',
-    component: WeatherDetails,
-  },
   {
     path: '/favorite',
     component: FavoriteCitys,
